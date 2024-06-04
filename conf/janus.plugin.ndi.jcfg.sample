@@ -1,0 +1,8 @@
+# Configuration of the Janus NDI plugin.
+
+general: {
+	
+	#buffer_size = 200			# Jitter buffer, in milliseconds (default=200)
+	#events = true				# Whether events should be sent to event
+								# handlers (default is false)
+}
