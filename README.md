@@ -3,6 +3,8 @@ Janus NDI Plugin
 
 This is an implementation of a Janus NDI plugin, developed by [Meetecho](http://www.meetecho.com). Its main purpose is receiving streams via WebRTC, and translating them to NDI senders locally. It's the open source version of a plugin that, at the time, was originally used by [Broadcast Bridge](https://broadcastbridge.app/) to help with the recording of [CommCon Virtual 2021](https://2021.commcon.xyz/) remote presentations.
 
+A [Janode](https://github.com/meetecho/janode/) module is available as well, to control the plugin programmatically via Node.js/JanaScript.
+
 The plugin supports:
 
 * NDI sender with a test pattern and a static name
@@ -63,6 +65,8 @@ When using the demo, opening the web page will prompt you for a display name. On
 
 Notice that this is just a local demo to showcase the plugin from a functional perspective. In regular scenarios, the Janus instance serving users will not be in the same network as the applications dealing with NDI feeds. Please refer to the blog posts mentioned at the beginning of this page for more information on the type of orchestration you'll need to perform.
 
+A [Janode](https://github.com/meetecho/janode/) module is also available as well, to control the plugin programmatically via Node.js/JanaScript. No example is available as of yet, but if you're familiar with Janode it should be trivial to use. You can learn more [here](janode/README.md).
+
 # API
 
 The `translate` request must be used to setup the PeerConnection and associate it with an NDI source: it expects a `name` property to be used by the NDI sender; optional arguments are `bitrate` (to send a bitrate cap via REMB) and `width`/`height` (to force scaling to a static resolution; if missing, the original resolution in the WebRTC stream is used). The following code comes from the sample demo page:
@@ -93,4 +97,4 @@ A test pattern can be sent via NDI by using a `start_test_pattern` request, and 
 
 	curl -d '{ "janus": "message_plugin", "transaction": "123", "admin_secret": "janusoverlord", "plugin": "janus.plugin.ndi", "request": { "request": "stop_test_pattern" } }' http://localhost:7088/admin
 
-For a more comprehensive documentation, please refer to [docs/API.md](API.md).
+For a more comprehensive documentation, including info on how to pre-create senders and have placeholder images be displayed when a WebRTC connection is not feeding them, please refer to the [API](docs/API.md).
