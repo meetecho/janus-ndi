@@ -1,0 +1,47 @@
+{
+	"name": "janode-ndi",
+	"description": "Janode module for the Janus NDI plugin",
+	"version": "1.0.0",
+	"type": "module",
+	"keywords": [
+		"ndi",
+		"janus",
+		"webrtc",
+		"meetecho"
+	],
+	"author": {
+		"name": "Lorenzo Miniero",
+		"email": "lorenzo@meetecho.com",
+		"url": "https://www.meetecho.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/meetecho/janus-ndi.git"
+	},
+	"bugs": {
+		"url": "https://github.com/meetecho/janus-ndi/issues"
+	},
+	"license": "ISC",
+	"main": "src/ndi.js",
+	"exports": {
+		".": "./src/ndi.js"
+	},
+	"files": [
+		"src/ndi.js"
+	],
+	"dependencies": {
+		"janode": "file:///home/lminiero/Work/code/janus/janode"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.4.0",
+		"eslint": "^9.4.0",
+		"globals": "^15.4.0"
+	},
+	"engines": {
+		"node": " >=18.18.0"
+	},
+	"scripts": {
+		"build": "npm install --omit=dev",
+		"lint": "npx eslint --debug"
+	}
+}
