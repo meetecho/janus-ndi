@@ -30,7 +30,7 @@
 		"src/ndi.js"
 	],
 	"dependencies": {
-		"janode": "file:///home/lminiero/Work/code/janus/janode"
+		"janode": "^1.8.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.4.0",
