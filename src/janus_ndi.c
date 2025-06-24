@@ -2104,6 +2104,7 @@ static void *janus_ndi_processing_thread(void *data) {
 				json_object_set_new(event, "ndi", json_string("event"));
 				json_t *result = json_object();
 				json_object_set_new(result, "event", json_string("tally"));
+				json_object_set_new(result, "name", json_string(session->ndi_name));
 				json_object_set_new(result, "preview", tally_preview ? json_true() : json_false());
 				json_object_set_new(result, "program", tally_program ? json_true() : json_false());
 				json_object_set_new(event, "result", result);
