@@ -3,7 +3,7 @@
  * License: GNU General Public License v3
  */
 
-#include "plugins/plugin.h"
+#include <janus/plugins/plugin.h>
 
 #include <sys/time.h>
 #include <jansson.h>
@@ -18,14 +18,14 @@
 #include <libavformat/avformat.h>
 #include <libswscale/swscale.h>
 
-#include "debug.h"
-#include "apierror.h"
-#include "config.h"
-#include "mutex.h"
-#include "rtp.h"
-#include "rtcp.h"
-#include "sdp-utils.h"
-#include "utils.h"
+#include <janus/debug.h>
+#include <janus/apierror.h>
+#include <janus/config.h>
+#include <janus/mutex.h>
+#include <janus/rtp.h>
+#include <janus/rtcp.h>
+#include <janus/sdp-utils.h>
+#include <janus/utils.h>
 
 /* The PNG test pattern as a header file */
 #include "pattern.h"

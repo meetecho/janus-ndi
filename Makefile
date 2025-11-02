@@ -8,7 +8,7 @@ SOURCE = src/janus_ndi.c
 TARGET = janus_ndi.so
 CFGFILE = janus.plugin.ndi.jcfg.sample
 
-CFLAGS += -I$(JANUSP)/include/janus $(shell pkg-config --cflags glib-2.0 jansson opus libcurl) -D_GNU_SOURCE -DHAVE_SRTP_2
+CFLAGS += -I$(JANUSP)/include $(shell pkg-config --cflags glib-2.0 jansson opus libcurl) -D_GNU_SOURCE -DHAVE_SRTP_2
 LDFLAGS += $(shell pkg-config --libs glib-2.0 jansson opus libcurl)
 
 JCFLAGS = -g -O2 -fstack-protector -Wall -Wextra -Wformat=2 -Wpointer-arith \
