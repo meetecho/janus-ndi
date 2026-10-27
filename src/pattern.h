@@ -3,7 +3,7 @@
 
 static const struct {
 	size_t size;
-	unsigned char data [64214];
+	uint8_t data [64214] __attribute__ ((nonstring));
 } pattern_png = {
 	64214,
 "\x89PNG\15\12\32\12\0\0\0\15IHDR\0\0\2\xD0\0\0\1\xE0\10\6\0\0\0\x8C\xC5Z\xAC\0\0 \0IDATx^\xEC\x9D"

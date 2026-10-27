@@ -3110,9 +3110,17 @@ static AVFrame *janus_ndi_download_image(const char *path) {
 		JANUS_LOG(LOG_ERR, "libcurl error\n");
 		return NULL;
 	}
+#if CURL_AT_LEAST_VERSION(7, 85, 0)
+	curl_easy_setopt(curl, CURLOPT_PROTOCOLS_STR, "http,https");
+	curl_easy_setopt(curl, CURLOPT_REDIR_PROTOCOLS_STR, "http,https");
+#else
+	curl_easy_setopt(curl, CURLOPT_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
+	curl_easy_setopt(curl, CURLOPT_REDIR_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
+#endif
 	curl_easy_setopt(curl, CURLOPT_URL, path);
-	curl_easy_setopt(curl, CURLOPT_HTTPGET, 1);
+	curl_easy_setopt(curl, CURLOPT_HTTPGET, 1L);
 	curl_easy_setopt(curl, CURLOPT_TIMEOUT, 10L);	/* FIXME Max 10 seconds */
+	curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 5L);
 	/* For getting data, we use an helper struct and the libcurl callback */
 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)file);
 	curl_easy_setopt(curl, CURLOPT_USERAGENT, "JanusNDIPlugin/1.0");
